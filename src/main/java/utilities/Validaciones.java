@@ -23,7 +23,7 @@ public class Validaciones {
         if (!esTextoValido(texto)) {
             return false;
         }
-        Pattern patron = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$");
+        Pattern patron = Pattern.compile("^[a-zA-Z\\s]+$");
         return patron.matcher(texto).matches();
     }
 

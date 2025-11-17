@@ -17,8 +17,8 @@ public class GestorUsuarios {
         this.usuarios = FileManager.cargarUsuarios();
     }
 
-    public boolean registrarUsuario(String nombreUsuario, String contraseña){
-        if (!Validaciones.esTextoValido(nombreUsuario) || !Validaciones.esTextoValido(contraseña)){
+    public boolean registrarUsuario(String nombreUsuario, String contrasena){
+        if (!Validaciones.esTextoValido(nombreUsuario) || !Validaciones.esTextoValido(contrasena)){
             return false;
         }
 
@@ -26,18 +26,18 @@ public class GestorUsuarios {
             return false;
         }
 
-        Usuario nuevoUsuario = new Usuario(nombreUsuario, contraseña);
+        Usuario nuevoUsuario = new Usuario(nombreUsuario, contrasena);
         usuarios.add(nuevoUsuario);
         FileManager.guardarUsuarios(usuarios);
         return true;
     }
 
-    public boolean iniciarSesion(String nombreUsuario, String contraseña){
-        if (!Validaciones.esTextoValido(nombreUsuario) || !Validaciones.esTextoValido(contraseña)){
+    public boolean iniciarSesion(String nombreUsuario, String contrasena){
+        if (!Validaciones.esTextoValido(nombreUsuario) || !Validaciones.esTextoValido(contrasena)){
             return false;
         }
         for (Usuario usuario : usuarios){
-            if (usuario.getNombreUsuario().equals(nombreUsuario) && usuario.getContraseña().equals(contraseña)){
+            if (usuario.getNombreUsuario().equals(nombreUsuario) && usuario.getContrasena().equals(contrasena)){
                 return true;
             }
         }

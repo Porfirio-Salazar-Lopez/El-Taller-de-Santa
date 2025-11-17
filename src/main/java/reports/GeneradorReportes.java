@@ -37,7 +37,7 @@ public class GeneradorReportes {
             reporte.append("No hay regalos registrados en el inventario.\n");
         } else {
             reporte.append(String.format("%-10s %-25s %-15s %-10s\n", 
-                "CÓDIGO", "NOMBRE", "MARCA", "CANTIDAD"));
+                "CODIGO", "NOMBRE", "MARCA", "CANTIDAD"));
             reporte.append("-----------------------------------------------------------\n");
             
             for (Regalo regalo : regalos) {
@@ -56,16 +56,16 @@ public class GeneradorReportes {
     public String generarReporteNinos() {
         StringBuilder reporte = new StringBuilder();
         reporte.append("-----------------------------------------------------------\n");
-        reporte.append("        REPORTE 2: LISTADO COMPLETO DE NIÑOS REGISTRADOS\n");
+        reporte.append("        REPORTE 2: LISTADO COMPLETO DE NINOS REGISTRADOS\n");
         reporte.append("-----------------------------------------------------------\n\n");
 
         List<Nino> ninos = gestorNinos.obtenerTodosLosNinos();
         
         if (ninos.isEmpty()) {
-            reporte.append("No hay niños registrados en el sistema.\n");
+            reporte.append("No hay ninos registrados en el sistema.\n");
         } else {
             reporte.append(String.format("%-15s %-30s %-5s %-20s %-30s\n",
-                "IDENTIFICACIÓN", "NOMBRE COMPLETO", "EDAD", "CIUDAD", "DIRECCIÓN"));
+                "IDENTIFICACION", "NOMBRE COMPLETO", "EDAD", "CIUDAD", "DIRECCION"));
             reporte.append("-----------------------------------------------------------\n");
             
             for (Nino nino : ninos) {
@@ -85,7 +85,7 @@ public class GeneradorReportes {
     public String generarReporteAsignaciones() {
         StringBuilder reporte = new StringBuilder();
         reporte.append("-----------------------------------------------------------\n");
-        reporte.append("     REPORTE 3: DETALLE DE REGALOS ASIGNADOS A CADA NIÑO\n");
+        reporte.append("     REPORTE 3: DETALLE DE REGALOS ASIGNADOS A CADA NINO\n");
         reporte.append("-----------------------------------------------------------\n\n");
 
         List<Asignacion> asignaciones = gestorAsignaciones.obtenerTodasLasAsignaciones();
@@ -94,7 +94,7 @@ public class GeneradorReportes {
             reporte.append("No hay asignaciones registradas.\n");
         } else {
             reporte.append(String.format("%-15s %-30s %-10s %-25s %-15s\n",
-                "IDENTIFICACIÓN", "NOMBRE COMPLETO", "CÓDIGO", "NOMBRE REGALO", "MARCA"));
+                "IDENTIFICACION", "NOMBRE COMPLETO", "CODIGO", "NOMBRE REGALO", "MARCA"));
             reporte.append("-----------------------------------------------------------\n");
             
             for (Asignacion asignacion : asignaciones) {
@@ -119,7 +119,7 @@ public class GeneradorReportes {
     public String generarReporteNinosSinRegalo() {
         StringBuilder reporte = new StringBuilder();
         reporte.append("-----------------------------------------------------------\n");
-        reporte.append("    REPORTE 4: NIÑOS REGISTRADOS SIN REGALO ASIGNADO\n");
+        reporte.append("    REPORTE 4: NINOS REGISTRADOS SIN REGALO ASIGNADO\n");
         reporte.append("-----------------------------------------------------------\n\n");
 
         List<Nino> todosLosNinos = gestorNinos.obtenerTodosLosNinos();
@@ -133,10 +133,10 @@ public class GeneradorReportes {
         }
         
         if (ninosSinRegalo.isEmpty()) {
-            reporte.append("Todos los niños registrados tienen un regalo asignado.\n");
+            reporte.append("Todos los ninos registrados tienen un regalo asignado.\n");
         } else {
             reporte.append(String.format("%-15s %-30s %-5s %-20s\n",
-                "IDENTIFICACIÓN", "NOMBRE COMPLETO", "EDAD", "CIUDAD"));
+                "IDENTIFICACION", "NOMBRE COMPLETO", "EDAD", "CIUDAD"));
             reporte.append("-----------------------------------------------------------\n");
             
             for (Nino nino : ninosSinRegalo) {
@@ -164,7 +164,7 @@ public class GeneradorReportes {
             reporte.append("No se encontraron regalos de la marca: ").append(marca).append("\n");
         } else {
             reporte.append(String.format("%-10s %-25s %-40s %-10s\n",
-                "CÓDIGO", "NOMBRE", "DESCRIPCIÓN", "CANTIDAD"));
+                "CODIGO", "NOMBRE", "DESCRIPCION", "CANTIDAD"));
             reporte.append("-----------------------------------------------------------\n");
             
             for (Regalo regalo : regalosPorMarca) {

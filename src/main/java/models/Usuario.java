@@ -6,13 +6,13 @@ package models;
 
 public class Usuario {
     private String nombreUsuario;
-    private String contraseña;
+    private String contrasena;
 
     public Usuario(){}
 
-    public Usuario(String nombreUsuario, String contraseña){
+    public Usuario(String nombreUsuario, String contrasena){
         this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public String getNombreUsuario(){
@@ -23,12 +23,12 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
     }
     
-    public String getContraseña(){
-        return contraseña;
+    public String getContrasena(){
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña){
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena){
+        this.contrasena = contrasena;
     }
     
     @Override

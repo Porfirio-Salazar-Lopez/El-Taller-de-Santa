@@ -95,7 +95,7 @@ public class FileManager {
         try (FileWriter writer = new FileWriter(ARCHIVO_NINOS)) {
             gson.toJson(ninos, writer);
         } catch (IOException e) {
-            System.err.println("Error al guardar niños: " + e.getMessage());
+            System.err.println("Error al guardar ninos: " + e.getMessage());
         }
     }
 
@@ -111,7 +111,7 @@ public class FileManager {
                     ninos = new ArrayList<>();
                 }
             } catch (IOException e) {
-                System.err.println("Error al cargar niños: " + e.getMessage());
+                System.err.println("Error al cargar ninos: " + e.getMessage());
                 ninos = new ArrayList<>();
             }
         }
