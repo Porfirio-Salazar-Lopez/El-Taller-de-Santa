@@ -186,7 +186,7 @@ public class GeneradorReportes {
     private void guardarReporteEnArchivo(String contenido, String nombreArchivo) {
         try (FileWriter writer = new FileWriter("data/" + nombreArchivo)) {
             writer.write(contenido);
-            System.out.println("\n✓ Reporte guardado en: data/" + nombreArchivo);
+            System.out.println("\n Reporte guardado en: data/" + nombreArchivo);
         } catch (IOException e) {
             System.err.println("Error al guardar el reporte: " + e.getMessage());
         }
