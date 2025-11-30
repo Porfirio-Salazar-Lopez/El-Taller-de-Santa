@@ -14,6 +14,7 @@ public class GestorNinos {
     private List<Nino> ninos;
 
     public GestorNinos() {
+        // Carga los niños guardados al iniciar
         this.ninos = FileManager.cargarNinos();
     }
 
@@ -66,6 +67,7 @@ public class GestorNinos {
             return false;
         }
 
+        // No se puede eliminar si ya tiene un regalo asignado
         if (gestorAsignaciones.tieneNinoAsignacion(identificacion)) {
             return false;
         }

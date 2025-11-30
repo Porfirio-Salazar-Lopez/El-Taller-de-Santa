@@ -14,22 +14,37 @@ public class GestorAsignaciones {
     private List<Asignacion> asignaciones;
 
     public GestorAsignaciones() {
+        // Carga las asignaciones guardadas al iniciar
         this.asignaciones = FileManager.cargarAsignaciones();
     }
 
-    public boolean asignarRegalo(String identificacionNino, String codigoRegalo, GestorRegalos gestorRegalos) {
+    public boolean asignarRegalo(String identificacionNino, String codigoRegalo, GestorRegalos gestorRegalos, GestorNinos gestorNinos) {
+        // Verifica que los datos no estén vacíos
         if (!Validaciones.esTextoValido(identificacionNino) || !Validaciones.esTextoValido(codigoRegalo)) {
             return false;
         }
 
+        // Verifica que el niño exista
+        if (gestorNinos.buscarNinoPorIdentificacion(identificacionNino) == null) {
+            return false;
+        }
+
+        // Verifica que el regalo exista
+        if (gestorRegalos.buscarRegaloPorCodigo(codigoRegalo) == null) {
+            return false;
+        }
+
+        // Verifica que el niño no tenga ya un regalo
         if (tieneNinoAsignacion(identificacionNino)) {
             return false;
         }
 
+        // Descuenta una unidad del inventario (si hay disponibilidad)
         if (!gestorRegalos.descontarUnidad(codigoRegalo)) {
             return false;
         }
 
+        // Crea la asignación y la guarda
         Asignacion nuevaAsignacion = new Asignacion(identificacionNino, codigoRegalo);
         asignaciones.add(nuevaAsignacion);
         FileManager.guardarAsignaciones(asignaciones);

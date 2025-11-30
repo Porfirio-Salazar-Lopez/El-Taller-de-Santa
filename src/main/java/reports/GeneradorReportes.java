@@ -69,7 +69,7 @@ public class GeneradorReportes {
             reporte.append("-----------------------------------------------------------\n");
             
             for (Nino nino : ninos) {
-                reporte.append(String.format("%-15s %-30s %-5d %-20s %-30s\n",
+                reporte.append(String.format("%-15s %-30s %-5s %-20s %-30s\n",
                     nino.getIdentificacion(),
                     nino.getNombreCompleto(),
                     nino.getEdad(),
@@ -140,7 +140,7 @@ public class GeneradorReportes {
             reporte.append("-----------------------------------------------------------\n");
             
             for (Nino nino : ninosSinRegalo) {
-                reporte.append(String.format("%-15s %-30s %-5d %-20s\n",
+                reporte.append(String.format("%-15s %-30s %-5s %-20s\n",
                     nino.getIdentificacion(),
                     nino.getNombreCompleto(),
                     nino.getEdad(),

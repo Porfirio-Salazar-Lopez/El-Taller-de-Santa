@@ -28,6 +28,7 @@ public class FileManager {
     private static final String ARCHIVO_ASIGNACIONES = DIRECTORIO_DATOS + "/asignaciones.json";
 
     private static void asegurarDirectorio() {
+        // Crea la carpeta de datos si no existe
         File directorio = new File(DIRECTORIO_DATOS);
         if (!directorio.exists()) {
             directorio.mkdirs();

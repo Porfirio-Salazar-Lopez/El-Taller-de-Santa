@@ -27,6 +27,7 @@ public class ElTallerDeSanta {
         System.out.println("          BIENVENIDO AL TALLER DE SANTA");
         System.out.println("-----------------------------------------------------------\n");
 
+        // Cargar todos los datos guardados al iniciar el programa
         gestorUsuarios = new GestorUsuarios();
         gestorRegalos = new GestorRegalos();
         gestorNinos = new GestorNinos();
@@ -46,6 +47,7 @@ public class ElTallerDeSanta {
                     iniciarSesion();
                     break;
                 case 3:
+                    // Solo permite entrar si ya inició sesión
                     if (sesionActiva) {
                         menuGestion();
                     } else {
@@ -97,6 +99,7 @@ public class ElTallerDeSanta {
         String nombreUsuario = leerTexto("Ingrese nombre de usuario: ");
         String contrasena = leerTexto("Ingrese contrasena: ");
 
+        // Si las credenciales son correctas, activa la sesión
         if (gestorUsuarios.iniciarSesion(nombreUsuario, contrasena)) {
             sesionActiva = true;
             System.out.println("\n Sesion iniciada correctamente.\n");
@@ -125,6 +128,7 @@ public class ElTallerDeSanta {
                     menuReportes();
                     break;
                 case 5:
+                    // Cierra la sesión y vuelve al menú principal
                     sesionActiva = false;
                     System.out.println("\n Sesion cerrada.\n");
                     break;
@@ -415,7 +419,8 @@ public class ElTallerDeSanta {
         String identificacion = leerTexto("Identificacion del nino: ");
         String codigoRegalo = leerTexto("Codigo del regalo: ");
 
-        if (gestorAsignaciones.asignarRegalo(identificacion, codigoRegalo, gestorRegalos)) {
+        // Asigna el regalo y descuenta automáticamente del inventario
+        if (gestorAsignaciones.asignarRegalo(identificacion, codigoRegalo, gestorRegalos, gestorNinos)) {
             System.out.println("\n Regalo asignado exitosamente.\n");
         } else {
             System.out.println("\n Error: No se pudo asignar el regalo. Verifique que:");
@@ -433,6 +438,7 @@ public class ElTallerDeSanta {
         String identificacion = leerTexto("Identificacion del nino: ");
         Asignacion asignacion = gestorAsignaciones.buscarAsignacionPorNino(identificacion);
 
+        // Si encuentra la asignación, muestra los datos del niño y su regalo
         if (asignacion != null) {
             Nino nino = gestorNinos.buscarNinoPorIdentificacion(identificacion);
             Regalo regalo = gestorRegalos.buscarRegaloPorCodigo(asignacion.getCodigoRegalo());
@@ -493,12 +499,14 @@ public class ElTallerDeSanta {
         } while (opcion != 6);
     }
 
+    // Lee texto de la consola y quita espacios al inicio y final
     private static String leerTexto(String mensaje) {
         System.out.print(mensaje);
         return scanner.nextLine().trim();
     }
 
     private static int leerEntero(String mensaje) {
+        // Pide un número hasta que el usuario ingrese uno válido
         while (true) {
             System.out.print(mensaje);
             String entrada = scanner.nextLine().trim();

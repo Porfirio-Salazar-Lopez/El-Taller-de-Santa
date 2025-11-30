@@ -14,6 +14,7 @@ public class GestorRegalos {
     private List<Regalo> regalos;
 
     public GestorRegalos() {
+        // Carga los regalos guardados al iniciar
         this.regalos = FileManager.cargarRegalos();
     }
 
@@ -66,6 +67,7 @@ public class GestorRegalos {
             return false;
         }
 
+        // No se puede eliminar si ya está asignado a un niño
         if (gestorAsignaciones.tieneRegaloAsignaciones(codigo)) {
             return false;
         }
@@ -115,6 +117,7 @@ public class GestorRegalos {
 
     public boolean descontarUnidad(String codigo) {
         Regalo regalo = buscarRegaloPorCodigo(codigo);
+        // Solo descuenta si hay unidades disponibles
         if (regalo == null || regalo.getCantidadDisponible() <= 0) {
             return false;
         }

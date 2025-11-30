@@ -14,6 +14,7 @@ public class GestorUsuarios {
     private List<Usuario> usuarios;
 
     public GestorUsuarios(){
+        // Carga los usuarios guardados al iniciar
         this.usuarios = FileManager.cargarUsuarios();
     }
 
